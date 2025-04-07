@@ -1,0 +1,67 @@
+.DS_STORE
+# Flutter/Dart related
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub/
+build/
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.podspec
+.idea/
+.vscode/
+*.iml
+
+# Specific to iOS
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+.idea/
+*.hmap
+
+# Android specific
+.gradle/
+local.properties
+*.iml
+/captures/
+
+# Build generated files
+build/
+*.apk
+*.ipa
+*.app
+*.dSYM
+*.log
+*.h
+*.a
+*.so
+
+# Flutter generated files
+flutter_*.png
+
+# Dart related
+*.dart_tool/
+*.packages
+.pub/
+
+# VS Code settings folder
+.vscode/
+
+# Other IDE settings
+.idea/
+
+# Dart analysis tool
+.analysis/
+
+# Exclude test results
+/test_results/
+
+ios/
+android/
+linux/
+macos/
+web/
+windows/
+.metadata
+
