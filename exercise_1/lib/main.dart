@@ -26,13 +26,13 @@ class MainApp extends StatelessWidget {
                 Container(
                   width: 200,
                   height: 100,
-                  padding: EdgeInsets.all(0),
+                  padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                   decoration: BoxDecoration(
                     color: Color.fromRGBO(255, 106, 7, 1),
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(color: Colors.black, width: 4),
                   ),
-                  child: Center(
+                  child: FittedBox(
                     child: Text(
                       'Welcome',
                       style: TextStyle(fontSize: 30, color: Colors.white),
@@ -47,8 +47,8 @@ class MainApp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  width: 100,
-                  height: 100,
+                  width: 110,
+                  height: 110,
                   decoration: BoxDecoration(
                     color: Color.fromRGBO(50, 50, 50, 1),
                   ),
@@ -63,8 +63,8 @@ class MainApp extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 100,
-                  height: 200,
+                  width: 110,
+                  height: 220,
                   decoration: BoxDecoration(
                     color: Color.fromRGBO(102, 102, 102, 1),
                   ),
@@ -80,8 +80,8 @@ class MainApp extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 100,
-                  height: 100,
+                  width: 110,
+                  height: 110,
                   decoration: BoxDecoration(
                     color: Color.fromRGBO(153, 153, 153, 1),
                   ),
