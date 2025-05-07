@@ -144,43 +144,46 @@ class MovieListItem extends StatelessWidget {
               ),
             );
           },
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.transparent,
-                child: ClipOval(
-                  child: FadeInImage(
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.cover,
-                    placeholder: AssetImage('assets/images/placeholder.png'),
-                    image:
-                        movie.imageURLs.isNotEmpty
-                            ? NetworkImage(movie.imageURLs.first)
-                            : AssetImage('assets/images/placeholder.png'),
-                    imageErrorBuilder: (context, error, stackTrace) {
-                      return Image.asset(
-                        'assets/images/placeholder.png',
-                        width: 100,
-                        height: 100,
-                        fit: BoxFit.cover,
-                      );
-                    },
+          child: Padding(
+            padding: EdgeInsets.all(5),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  backgroundColor: Colors.transparent,
+                  child: ClipOval(
+                    child: FadeInImage(
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
+                      placeholder: AssetImage('assets/images/placeholder.png'),
+                      image:
+                          movie.imageURLs.isNotEmpty
+                              ? NetworkImage(movie.imageURLs.first)
+                              : AssetImage('assets/images/placeholder.png'),
+                      imageErrorBuilder: (context, error, stackTrace) {
+                        return Image.asset(
+                          'assets/images/placeholder.png',
+                          width: 100,
+                          height: 100,
+                          fit: BoxFit.cover,
+                        );
+                      },
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(width: 20),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text(movie.title), Text(movie.director)],
+                SizedBox(width: 20),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [Text(movie.title), Text(movie.director)],
+                  ),
                 ),
-              ),
-              Icon(Icons.arrow_forward_ios),
-            ],
+                Icon(Icons.arrow_forward_ios),
+              ],
+            ),
           ),
         ),
       ),
