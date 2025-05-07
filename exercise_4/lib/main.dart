@@ -118,41 +118,72 @@ class MovieListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        radius: 30,
-        backgroundColor: Colors.transparent,
-        child: ClipOval(
-          child: FadeInImage(
-            width: 100,
-            height: 100,
-            fit: BoxFit.cover,
-            placeholder: AssetImage('assets/images/placeholder.png'),
-            image:
-                movie.imageURLs.isNotEmpty
-                    ? NetworkImage(movie.imageURLs.first)
-                    : AssetImage('assets/images/placeholder.png'),
-            imageErrorBuilder: (context, error, stackTrace) {
-              return Image.asset(
-                'assets/images/placeholder.png',
-                width: 100,
-                height: 100,
-                fit: BoxFit.cover,
-              );
-            },
+    return Container(
+      height: 80,
+      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 206, 206, 206),
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(90),
+            blurRadius: 10,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(10),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MovieDetailsScreen(movie: movie),
+              ),
+            );
+          },
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 30,
+                backgroundColor: Colors.transparent,
+                child: ClipOval(
+                  child: FadeInImage(
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover,
+                    placeholder: AssetImage('assets/images/placeholder.png'),
+                    image:
+                        movie.imageURLs.isNotEmpty
+                            ? NetworkImage(movie.imageURLs.first)
+                            : AssetImage('assets/images/placeholder.png'),
+                    imageErrorBuilder: (context, error, stackTrace) {
+                      return Image.asset(
+                        'assets/images/placeholder.png',
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      );
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(width: 20),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Text(movie.title), Text(movie.director)],
+                ),
+              ),
+              Icon(Icons.arrow_forward_ios),
+            ],
           ),
         ),
       ),
-      title: Text(movie.title),
-      subtitle: Text(movie.director),
-      trailing: Icon(Icons.arrow_forward_ios),
-      onTap:
-          () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => MovieDetailsScreen(movie: movie),
-            ),
-          ),
     );
   }
 }
